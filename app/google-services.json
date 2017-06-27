@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "454111549629",
+    "firebase_url": "https://eventosjjr-bab6f.firebaseio.com",
+    "project_id": "eventosjjr-bab6f",
+    "storage_bucket": "eventosjjr-bab6f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454111549629:android:5e4ba4402e944c05",
+        "android_client_info": {
+          "package_name": "com.example.jaime.eventosjjr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454111549629-6ad1tk1hth7cb23o644lmsa2mqon8mdv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jaime.eventosjjr",
+            "certificate_hash": "37e68e72088966bd65ab63cf6f7ae038d11499d2"
+          }
+        },
+        {
+          "client_id": "454111549629-aoq81redcj4g0m1ocf5q0dtm8vroesuo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlJE5yuzrdnZZF_-9Ody-I19fv3MxlE34"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454111549629-aoq81redcj4g0m1ocf5q0dtm8vroesuo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
