@@ -5,12 +5,20 @@ package com.example.jaime.eventosjjr;
  */
 
 import android.app.Activity;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.graphics.Bitmap;
+import com.squareup.picasso.*;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 /**
  * Created by Aspire on 13/06/2017.
@@ -19,15 +27,15 @@ import android.widget.TextView;
 public class CustomList extends ArrayAdapter<String> {
 
     private final Activity context;
-    private final String[] web;
-    private final Integer[] imageId;
+    private  ArrayList<String> nombreEvento = new ArrayList<>();
+    private  ArrayList<String> urlImagen = new ArrayList<>();
 
-    public CustomList(Activity context,String[] web, Integer[] imageId) {
+    public CustomList(Activity context, ArrayList<String> nombreEvento, ArrayList<String> urlImagen) {
 
-        super(context, R.layout.list_single, web);
+        super(context, R.layout.list_single, nombreEvento);
         this.context = context;
-        this.web = web;
-        this.imageId = imageId;
+        this.nombreEvento = nombreEvento;
+        this.urlImagen = urlImagen;
     }
 
     @Override
@@ -36,11 +44,10 @@ public class CustomList extends ArrayAdapter<String> {
         LayoutInflater inflater = context.getLayoutInflater();
         View rowView= inflater.inflate(R.layout.list_single, null, true);
         TextView txtTitle = (TextView) rowView.findViewById(R.id.list_texto);
-
         ImageView imageView = (ImageView) rowView.findViewById(R.id.list_imagen);
-        txtTitle.setText(web[position]);
-
-        imageView.setImageResource(imageId[position]);
+        Picasso.with(context).load(urlImagen.get(position)).into(imageView);
+        txtTitle.setText(nombreEvento.get(position));
         return rowView;
     }
+
 }

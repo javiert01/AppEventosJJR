@@ -42,24 +42,17 @@ import java.util.ArrayList;
 public class FragmentInicio extends Fragment{
 
     ListView list;
-    String[] web = {
-            "Evento 1",
-            "Evento 2",
-            "Evento 3"
-
-    } ;
-    Integer[] imageId = {
-            R.drawable.evento1,
-            R.drawable.evento2,
-            R.drawable.evento3
-    };
+    ArrayList<String> nombresEventos = new ArrayList<>();
+    ArrayList<String> urlImagenes = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        httpClient.excecute("http://172.29.0.113:1337/evento/");
         View view = inflater.inflate(R.layout.fragment_inicio, container, false);
 
-        CustomList adapter = new CustomList(getActivity(), web, imageId);
 
+        CustomList adapter = new CustomList(getActivity(), nombresEventos, urlImagenes);
         list=(ListView)view.findViewById(R.id.lista_eventos);
         list.setAdapter(adapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -68,7 +61,7 @@ public class FragmentInicio extends Fragment{
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 //Toast.makeText(getContext(), "Evento seleccionado: " +web[+ position], Toast.LENGTH_SHORT).show();
-                httpClient.excecute("http://192.168.100.5:1337/evento/");
+
                 PopupMenu popupMenu = new PopupMenu(getActivity(),view);
 
                 popupMenu.getMenuInflater().inflate(R.menu.popmenu_evento,popupMenu.getMenu());
@@ -115,6 +108,8 @@ public class FragmentInicio extends Fragment{
                         TipoEvento tipoEvento1 = gson.fromJson(tipoEvento.toString(),TipoEvento.class);*/
                         Evento eventoC = gson.fromJson(eventoS,Evento.class);
                         listaEventos.add(eventoC);
+                        nombresEventos.add(eventoC.nombreEvento);
+                        urlImagenes.add(eventoC.imagenEvento);
                     }
                     Log.d("toast",listaEventos.get(0).nombreEvento.toString());
                     mostrarToast(listaEventos.get(0).nombreEvento.toString());

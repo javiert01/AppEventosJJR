@@ -53,7 +53,7 @@ public class Buscar extends Fragment {
         gps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(),EventosCerca.class);
+                Intent intent = new Intent(getContext(),MapsActivity.class);
                 startActivity(intent);
             }
         });
